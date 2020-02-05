@@ -1,0 +1,1 @@
+geth --datadir data/data --rpc --rpcport 9000 --rpccorsdomain "*" --networkid 123456 dumpconfig

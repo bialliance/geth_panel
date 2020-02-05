@@ -1,0 +1,79 @@
+[Eth]
+NetworkId = 60403355
+SyncMode = "fast"
+NoPruning = false
+LightPeers = 100
+DatabaseCache = 512
+TrieCleanCache = 256
+TrieDirtyCache = 256
+TrieTimeout = 3600000000000
+Etherbase = "0x1a000e19f1e1bf4e8e8973bd934ae206ff3dfab6"
+MinerGasFloor = 8000000
+MinerGasCeil = 8000000
+MinerGasPrice = 1000000000
+MinerRecommit = 3000000000
+MinerNoverify = false
+EnablePreimageRecording = false
+EWASMInterpreter = ""
+EVMInterpreter = ""
+
+[Eth.Ethash]
+CacheDir = "ethash"
+CachesInMem = 2
+CachesOnDisk = 3
+DatasetDir = "C:\\Users\\djerom\\AppData\\Ethash"
+DatasetsInMem = 1
+DatasetsOnDisk = 2
+PowMode = 0
+
+[Eth.TxPool]
+Locals = []
+NoLocals = false
+Journal = "transactions.rlp"
+Rejournal = 3600000000000
+PriceLimit = 1
+PriceBump = 10
+AccountSlots = 16
+GlobalSlots = 4096
+AccountQueue = 64
+GlobalQueue = 1024
+Lifetime = 10800000000000
+
+[Eth.GPO]
+Blocks = 20
+Percentile = 60
+
+[Shh]
+MaxMessageSize = 1048576
+MinimumAcceptedPOW = 2e-01
+RestrictConnectionBetweenLightClients = true
+
+[Node]
+DataDir = "./geth/data/.1a000e19f1e1bf4e8e8973bd934ae206ff3dfab6"
+IPCPath = "geth.ipc"
+HTTPHost = "127.0.0.1"
+HTTPPort = 21002
+HTTPCors = ["*"]
+HTTPVirtualHosts = ["localhost"]
+HTTPModules = ["net", "web3", "eth", "shh", "admin", "miner"]
+WSPort = 8546
+WSModules = ["net", "web3", "eth", "shh"]
+
+[Node.P2P]
+MaxPeers = 25
+NoDiscovery = false
+BootstrapNodes = []
+StaticNodes = []
+TrustedNodes = []
+ListenAddr = ":21003"
+EnableMsgEvents = false
+
+[Node.HTTPTimeouts]
+ReadTimeout = 30000000000
+WriteTimeout = 30000000000
+IdleTimeout = 120000000000
+
+[Dashboard]
+Host = "localhost"
+Port = 8080
+Refresh = 5000000000

@@ -1,0 +1,55 @@
+{
+	"port": 21008,
+	"nodes": [
+		{
+			"rpcport": 21000,
+			"clusterport": 21001,
+			"wallet": {
+				"privateKey": "75f4b8adeeb27fce860f609247490b3ffaa8c4a860ed56eb773b938c8923f242",
+				"publicKey": "7f77cc69155262706c1b7c0975e58d95273bb7f7cf158bb7cd72b05ba20fde515c7cfd52945d6adb2a37ba232a1fb1d3d4c0f689612981f7d0711ebdb088e75b",
+				"address": "9a12a32f79388a1d35e69c1088c05fa16719d3ea"
+			},
+			"dir": "./geth/data/.9a12a32f79388a1d35e69c1088c05fa16719d3ea",
+			"chainId": 71018396
+		},
+		{
+			"rpcport": 21002,
+			"clusterport": 21003,
+			"wallet": {
+				"privateKey": "4871c840839a45e4d83c5c33f1a0415976ea2f67877dcadc6060c2ef7ca38c08",
+				"publicKey": "b2255c3da2cd892482d2c715e9b3c003e14c9476a67ba6a5d43fd7354d37bc259e3db0a4dca0c662c38c04c6d99f0e053d205709a20e671a92cce82b132fb78e",
+				"address": "7b2f3073fa00964cc83fa7d836ad01f375cef7a8"
+			},
+			"dir": "./geth/data/.7b2f3073fa00964cc83fa7d836ad01f375cef7a8",
+			"chainId": 35742262
+		},
+		{
+			"rpcport": 21004,
+			"clusterport": 21005,
+			"wallet": {
+				"privateKey": "51bc382d117503ce00cc1e02b9d119f6873af8a172494383e8c55823ba056711",
+				"publicKey": "8f584c304a83994851bcc45846406d204dfd44c41973fb4b48e20c58df4f91f404cff7b92aeb0136c61ca32fa288de790ac3b30f722a51af5e48f54a725d0daf",
+				"address": "f940a27f50e787890baacb45e9523abb626056a8"
+			},
+			"dir": "./geth/data/.f940a27f50e787890baacb45e9523abb626056a8",
+			"chainId": 95964996
+		},
+		{
+			"rpcport": 21006,
+			"clusterport": 21007,
+			"wallet": {
+				"privateKey": "aafcf0d4902aff1d6c5f9a2ffdc672f4b7db71f7cbe0681a9ac147d2679ea00d",
+				"publicKey": "08867b9aa9c43c1e85fbb6f2d71b5ca93a87781d00db93a8b636f7fb718ae2a18a9c80eb1549a0f8bac6083e214d86369c941fed099c393d850308c291133939",
+				"address": "8df00d37220784b9aadbf45e5dab7f5b05b851ac"
+			},
+			"dir": "./geth/data/.8df00d37220784b9aadbf45e5dab7f5b05b851ac",
+			"chainId": 68836927
+		}
+	],
+	"pids": {
+		"9a12a32f79388a1d35e69c1088c05fa16719d3ea": 17656,
+		"7b2f3073fa00964cc83fa7d836ad01f375cef7a8": 15668,
+		"f940a27f50e787890baacb45e9523abb626056a8": 16096,
+		"8df00d37220784b9aadbf45e5dab7f5b05b851ac": 17028
+	}
+}

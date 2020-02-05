@@ -1,0 +1,17 @@
+[Eth]
+NetworkId = 123456
+Etherbase = "0xc2af320370b3b85710960d164dd059685c85dfa7"
+
+[Node]
+DataDir = './data/data'
+IPCPath = "geth.inc"
+HTTPHost = "127.0.0.1"
+HTTPPort = 9000
+HTTPModules = ["net", "web3", "eth", "shh", "admin", "miner"]
+HTTPCors = ["*"]
+HTTPVirtualHosts = ["localhost"]
+
+[Node.P2P]
+NoDiscovery = true
+BootstrapNodes = []
+BootstrapNodesV5 = []
