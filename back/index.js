@@ -5,7 +5,7 @@ const conf = require('./conf')
 
 var geth = require('./libs/geth')
 gg = new geth(conf.geth)
-// gg.clear()
+gg.clear()
 
 const g = require('./rpc/node')
 var info = g.create({ name: "testnode1" })
