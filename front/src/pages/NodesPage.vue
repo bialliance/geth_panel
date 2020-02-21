@@ -6,7 +6,7 @@
             <div>rpc: {{n.rpcport}}</div>
             <div>cluster: {{n.clusterport}}</div>
             <div class="btn btn-primary">Edit</div>
-            <div class="btn btn-primary">Remove</div>
+            <div class="btn btn-danger">Remove</div>
             <router-link :to="rpc_adr(n.wallet.address)" class="btn btn-success">RPC</router-link>
         </div>
 	</div>
