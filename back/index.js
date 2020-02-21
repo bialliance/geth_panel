@@ -1,25 +1,45 @@
 const express = require('express')
 const Wallet = require('./libs/wallet')
 const conf = require('./conf')
+const cors = require('cors')
 
 
 var geth = require('./libs/geth')
 gg = new geth(conf.geth)
-gg.clear()
 
-const g = require('./rpc/node')
-var info = g.create({ name: "testnode1" })
+// console.log(gg)
+// gg.clear()
 
-gg.load()
+// var n = gg.create_node()
+// console.log(n)
+// const g = require('./rpc/node')
+// var info = g.create({ name: "testnode1" })
+// g.load()
+// gg.load()
 gg.start_all_nodes()
 
+
+
+// console.log(gg.procs[n.address])
+
 // console.log(info)
+// return
 
 
-return
+
 
 var app = new express()
+app.use(cors())
 app.use(express.json())
+
+app.use((req, res, next) => {
+    req.geth = gg
+    next()
+})
+
+app.use('/api', require('./routes/node'))
+
+
 
 app.post('/rpc', (req, res) => {
     // Тут вся обработка JSON-RPC
@@ -33,7 +53,7 @@ app.post('/rpc', (req, res) => {
     res.send(ret)
 })
 
-var ki = Wallet.generate()
+// var ki = Wallet.generate()
 
 
 
@@ -42,7 +62,7 @@ var ki = Wallet.generate()
 // var ge = require('./bia_geth/wallet')
 
 // var ki = ge.gen_wallet_data()
-console.log(ki)
+// console.log(ki)
 app.listen(3000)
 return
 

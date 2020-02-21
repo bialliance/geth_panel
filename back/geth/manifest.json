@@ -1,17 +1,31 @@
 {
-	"port": 21002,
+	"port": 21004,
 	"nodes": [
 		{
 			"rpcport": 21000,
 			"clusterport": 21001,
 			"wallet": {
-				"privateKey": "1cbd9572578821d996bf2a637ff68938c8fe200db67c651c1471fea692db4b43",
-				"publicKey": "4f5e8191db3e44d05b6b6c08d600a890491d871867945db7a3589f887972728a913a2539a1e4b8be82c20224706d5b16a204bcb5d8d081703669a61718231747",
-				"address": "e93345980d633a679048e420444a55f46c71d8a2"
+				"privateKey": "d228d062ddc948aebaa09937d890007e6df34ee5a38be18739e238ce011c73a2",
+				"publicKey": "b042036493a1f24ef96c0438c74373774005b8d2f1663b17ea1afc8051a0a824098e3b71a502ab1113443ae8cdb91e0fe06e3cb3dec6462c6e777b37178ac33e",
+				"address": "3f69f98e3a7a11788f23d9d61a576e5a685ae135"
 			},
-			"dir": "./geth/data/.e93345980d633a679048e420444a55f46c71d8a2",
-			"chainId": 66272667
+			"dir": "./geth/data/.3f69f98e3a7a11788f23d9d61a576e5a685ae135",
+			"chainId": 91408095
+		},
+		{
+			"rpcport": 21002,
+			"clusterport": 21003,
+			"wallet": {
+				"privateKey": "49fe0a89e757931545fae292559f2bdbc624c5e75749c3f7e0628bd36582fb38",
+				"publicKey": "a96cdfb86edc79f88d79490584344d38051797ba706f34f555020be0a9a63ec9cd46ecf09bb6efb68e80534b6ce3b4790a969fa9e30b145308fc9ad449c1fd33",
+				"address": "e09eb49bc93ab2e2370ce8e0a93d709f76b61b27"
+			},
+			"dir": "./geth/data/.e09eb49bc93ab2e2370ce8e0a93d709f76b61b27",
+			"chainId": 35284112
 		}
 	],
-	"pids": {}
+	"pids": {
+		"3f69f98e3a7a11788f23d9d61a576e5a685ae135": 49540,
+		"e09eb49bc93ab2e2370ce8e0a93d709f76b61b27": 49680
+	}
 }

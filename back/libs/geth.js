@@ -9,9 +9,13 @@ const Wallet = require('./wallet')
 const toml = require('./toml')
 
 module.exports = class {
+    /** Создать модуль управления узлом.
+     * params.path путь к папке с geth
+     */
     constructor(params) {
         this.params = params
         this.path = params.path
+        this.procs = {}
         // this.geth = (params.path || './geth/') + 'geth.exe'
         // this.datadir = (params.path || './data/')
 
@@ -25,6 +29,7 @@ module.exports = class {
         this.load()
     }
 
+    /** Загрузить параметры узла. Порт, узлы. pid запущенных клиентов */
     load() {
         if (fs.existsSync(this.path + '/manifest.json')) {
             this.dump = JSON.parse(fs.readFileSync(this.path + '/manifest.json'))
@@ -42,6 +47,7 @@ module.exports = class {
             this.dump.pids = {}
     }
 
+    /** Сохранить параметры узла. */
     save() {
         fs.writeFileSync(this.path + '/manifest.json', JSON.stringify(this.dump, null, '\t'))
     }
@@ -54,6 +60,7 @@ module.exports = class {
         this.load()
     }
 
+    /** Зпустить экземпляр geth для указанного адреса=иям  узла=адрес bankwallet */
     start_node(address) {
         console.log('starting...')
         var ls = cp.spawn(this.path + 'geth', ['--config', this.path + '/data/.' + address + '/config.toml', '--ipcdisable'])
@@ -70,6 +77,7 @@ module.exports = class {
             console.log(`child process exited with code ${code}`);
         });
 
+        this.procs[address] = ls        
         this.dump.pids[address] = ls.pid
         this.save()
     }
@@ -86,8 +94,15 @@ module.exports = class {
 
     kill_all_nodes() {
         Object.values(this.dump.pids).forEach(pid => kill(pid))
+        this.procs = {}
     }
 
+    /** Создать новый экземпляр ноды.
+     * returns
+     *  .address адрес созданной ноды
+     *  .rpcport порт для RPC взаимодействия
+     *  .clusterport порт для кластера.
+     */
     create_node() {
         var ns = {}
 
@@ -123,7 +138,7 @@ module.exports = class {
         this.dump.nodes.push(ns)
         this.save()
         if (ls.output.toString().includes('Successfully wrote genesis state'))
-            return { "uid": wallet.address }
+            return { "address": wallet.address, rpcport: ns.rpcport, clusterport: ns.clusterport }
         else
             return false
 
@@ -145,6 +160,10 @@ module.exports = class {
         // Создаем временную папку.
 
 
+    }
+
+    node(address){
+        return this.dump.nodes.filter(n => n.wallet.address == address)[0]
     }
 
     _create_genesis(ns) {
@@ -184,7 +203,6 @@ module.exports = class {
         fs.writeFileSync(ns.dir + '/config.toml', toml.stringify(conf))
     }
 
-
     import_key(privateKey, password) {
         // Скидываем данные во временные файлы
         fs.mkdirSync('tmp')
@@ -193,6 +211,8 @@ module.exports = class {
 
         var ls = cp.spawnSync(this.geth, ['--datadir', this.datadir, 'account', 'import', 'tmp/privtae', '--password', 'tmp', 'pass']) // --datadir ddd exec ""')
         var adr = ls.output.filter(x => x != null && x.toString().startsWith('Address'))
+        fs.unlinkSync('tmp/private')
+        fs.unlinkSync('tmp/password')
         console.log(adr.toString())
     }
 }

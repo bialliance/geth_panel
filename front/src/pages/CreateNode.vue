@@ -3,6 +3,7 @@
         <input v-model="name" /><br/>
         <div class="btn btn-primary btn-xl" @click="create_node()">Создать ноду</div>
 
+        {{nodes}}
         <router-link to='/'>Home</router-link>
     </div>
 </template>
@@ -10,8 +11,13 @@
 <script>
 export default {
     data(){return{
-        name: 'mynode'
+        name: 'mynode',
+        nodes: []
     }},
+
+    mounted(){
+        this.$api.get('/nodes').then(res => this.nodes = res.data.data)
+    },
 
     methods: {
         create_node(){
