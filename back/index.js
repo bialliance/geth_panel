@@ -37,7 +37,7 @@ app.use((req, res, next) => {
     next()
 })
 
-app.use('/api', require('./routes/node'))
+app.use('/api', require('./routes/nodes'))
 
 
 

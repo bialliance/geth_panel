@@ -20,21 +20,17 @@ module.exports = {
         switch (typeof (v)) {
             case "number":
                 return v
-                break;
 
             case "string":
                 return '"' + v + '"'
-                break;
 
             case "object":
-                var ret = ""
                 if (Array.isArray(v)) {
                     return '[' + v.map(s => this.serialize_section2(s)).join(',') + ']'
                 }
                 else {
                     return null
                 }
-                break;
         }
     }
 }

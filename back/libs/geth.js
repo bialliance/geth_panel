@@ -60,7 +60,7 @@ module.exports = class {
         this.load()
     }
 
-    /** Зпустить экземпляр geth для указанного адреса=иям  узла=адрес bankwallet */
+    /** Запустить экземпляр geth для указанного (адреса = имя узла = адрес bankwallet) */
     start_node(address) {
         console.log('starting...')
         var ls = cp.spawn(this.path + 'geth', ['--config', this.path + '/data/.' + address + '/config.toml', '--ipcdisable'])
@@ -99,9 +99,9 @@ module.exports = class {
 
     /** Создать новый экземпляр ноды.
      * returns
-     *  .address адрес созданной ноды
-     *  .rpcport порт для RPC взаимодействия
-     *  .clusterport порт для кластера.
+     *  .address - адрес созданной ноды
+     *  .rpcport - порт для RPC взаимодействия
+     *  .clusterport - порт для кластера.
      */
     create_node() {
         var ns = {}

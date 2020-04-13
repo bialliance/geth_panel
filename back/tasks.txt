@@ -1,0 +1,9 @@
+- GET /geth
+returns {
+    name,
+    address
+}
+
+- GET /geth/
+
+- DELETE /nodes/:id

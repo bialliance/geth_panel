@@ -6,7 +6,12 @@ const cryptoRandomString = require('crypto-random-string')
 
 module.exports = {
 
-    /** Получить данные для создания кошелька в ETH */
+    /** Получить данные для создания кошелька в ETH 
+     * returns
+     *  .privateKey - приватный ключ
+     *  .publicKey - публичный ключ
+     *  .address - адресс создаваемого кошелька
+    */
     generate(){
         var rnd = cryptoRandomString({length: 64})
         var G = ec.g; // Generator point
@@ -16,7 +21,7 @@ module.exports = {
         var pubPoint = G.mul(pk); // EC multiplication to determine public point
         var x = pubPoint.getX().toBuffer(); //32 bit x co-ordinate of public point
         var y = pubPoint.getY().toBuffer(); //32 bit y co-ordinate of public point 
-        var publicKey =Buffer.concat([x,y])
+        var publicKey = Buffer.concat([x,y])
         // console.log("public key::"+publicKey.toString('hex'))
         const address = keccak256(publicKey) // keccak256 hash of  publicKey
         const buf2 = Buffer.from(address, 'hex');
@@ -27,7 +32,5 @@ module.exports = {
             publicKey: publicKey.toString('hex'),
             address: buf2.slice(-20).toString('hex')
         }
-
-        // return data
     }
 }
