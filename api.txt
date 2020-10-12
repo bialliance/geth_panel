@@ -1,0 +1,22 @@
+models
+node {
+	id,
+	name,
+	wallet,
+	rpc_adr,
+	cluster_adr,	
+}
+
+
+GET /bcm/nodes/ + /bcm/nodes/:id
+
+POST /bcm/nodes/
+{
+	name
+}
+
+DELETE /bcm/nodes/:id
+
+
+
+docker run -ti -p 10008:80 -v /var/run/docker.sock:/var/run/docker.sock --name=bcm bash
